@@ -1,0 +1,64 @@
+﻿<h3 class="ddd" style="width: 100%; background: #ddd; padding: 10px 0px">News Feeds</h3>
+<div style=" height:200px ;overflow-y:auto;overflow-x:hidden">
+    <div class="row">
+        <div class="col-md-2">
+            News Category
+        </div>
+        <div class="col-md-3" ng-show="newsCategory.length>0">
+            <select ng-model="News.newsSelectedCategory" ng-change="GetNewsFeed()" style="width:100%" ng-options="o as o for o in newsCategory"></select>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-2">
+            Language
+        </div>
+        <div class="col-md-3" ng-show="newsLanguage.length>0">
+            <select ng-model="News.newsSelectedLan" ng-change="GetNewsFeed()" style="width:100%" ng-options="o as o for o in newsLanguage"></select>
+        </div>
+    </div>
+    <div class="row" ng-if="NewsData.length>0">
+        <div class="col-md-2">
+            <strong><i>  Name</i></strong>
+        </div>
+        <div class="col-md-5">
+            <strong><i>Description</i></strong>
+        </div>
+        <div class="col-md-3">
+            <strong><i> View</i></strong>
+        </div>
+        <div class="col-md-2">
+            <strong><i>  Read News</i></strong>
+        </div>
+    </div>
+
+    <div class="row" ng-if="NewsData.length>0" ng-repeat="src in NewsData | filter: src.name|filter: src.description">
+        <div class="col-md-2" ng-if="$even" style="background-color:lightblue;height:60px">
+            {{src.name}}
+        </div>
+        <div class="col-md-5" ng-if="$even" style="background-color: lightblue; text-align: justify; height: 60px">
+            {{src.description}}
+        </div>
+        <div class="col-md-3" ng-if="$even" style="background-color: lightblue; height: 60px">
+            <a href="{{src.url}}" target="_blank">  {{src.url}}</a>
+        </div>
+        <div class="col-md-2" ng-if="$even" style="background-color: lightblue; height: 60px">
+            <button class="btn btn-success" ng-click="SpeachNews(src.description)">Read News</button> 
+        </div>
+        <div class="col-md-2" ng-if="$odd" style="background-color: lightgray; height: 60px">
+            {{src.name}}
+        </div>
+        <div class="col-md-5" ng-if="$odd" style="background-color: lightgray; text-align: justify; height: 60px">
+            {{src.description}}
+        </div>
+        <div class="col-md-3" ng-if="$odd" style="background-color: lightgray; height: 60px">
+            <a href="{{src.url}}" target="_blank">  {{src.url}}</a>
+        </div>
+        <div class="col-md-2" ng-if="$odd" style="background-color: lightblue; height: 60px">
+            <button class="btn btn-success" ng-click="SpeachNews(src.description)">Read News</button>
+        </div>
+    </div>
+
+
+</div>

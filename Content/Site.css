@@ -1,0 +1,19 @@
+﻿.box h3{
+	text-align:center;
+	position:relative;
+	
+}
+.box {
+	width:70%;
+	height:200px;
+	background:#FFF;
+	margin:40px auto;
+}
+
+
+/*==================================================
+ * Effect 1
+ * ===============================================*/
+.effect1{
+     box-shadow: 0 10px 6px -2px #777;
+}

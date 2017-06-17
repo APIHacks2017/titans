@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>My App</title>
+    <link href="Content/UI.Tools/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <link href="Content/UI.Tools/Angular/Angularjs/css/angular-gridster.min.css" rel="stylesheet" />
+    <link href="Content/select2.min.css" rel="stylesheet" />
+    <script src="Content/UI.Tools/Jquery/jquery-1.11.3.js"></script>
+    <script src="Content/UI.Tools/Angular/Angularjs/angular.min.js"></script>
+    <script src="Content/UI.Tools/Angular/Angularjs/10.angular-gridster.min.js"></script>
+    <script src="Content/UI.Tools/Angular/UI.Bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+    <script src="Content/UI.Tools/bootstrap/js/bootstrap.js"></script>
+
+    <script src="Content/select2.min.js"></script>
+    <script src="Scripts/datatables.js"></script>
+    <script src="Scripts/App/common.js"></script>
+    <script src="Scripts/App/Pms.js"></script>
+    <script src="Scripts/App/Services/PmsServices.js"></script>
+    <script src="Scripts/App/Directives/DatatableDirective.js"></script>
+
+    <script src="Scripts/App/Controllers/PmsController.js"></script>
+    <style>
+        .gridster ul li {
+            width: 100% !important;
+        }
+
+        #tblDetails_wrapper .row {
+            width: 820px;
+        }
+    </style>
+</head>
+<body ng-app="PmsApp">
+    <div class="container container-fluid" ng-controller="PmsController">
+
+        <nav class="navbar navbar-inverse">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Quick Reference</a>
+            </div>
+
+
+        </nav>
+
+        <div ng-include="'PartialView/header.html'"></div>
+        <div class="row">
+            <marquee style="color:green;"><i style=" font-weight:bold">Thought of the Day:</i>{{thought}}</marquee>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div gridster="gridsterOpts">
+                    <ul>
+                        <li style="border: solid 1px;" class="box effect1" gridster-item="item" ng-repeat="item in myInvestmentData">
+                            <div ng-if="item.id=='1'">
+                                <div ng-include="'PartialView/RootDetails.html'"></div>
+                            </div>
+
+                            <div ng-if="item.id=='2'" ng-include="'PartialView/newsFeeds.html'"></div>
+
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Root Bus Details</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

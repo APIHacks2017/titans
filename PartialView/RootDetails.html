@@ -1,0 +1,36 @@
+﻿<div class="row">
+    <div class="col-md-12 text-center">
+        <h3 style="width: 100%; background: #ddd; padding: 5px 0px">Chennai Bus Route Info </h3>
+        <i>Note:Click Row to Get Bus Route Info.</i>
+    </div>
+
+</div>
+<div class="col-lg-6" ng-if="displayBus==true">
+    <table pms-table options="busDetails" class="table table-bordered table-condensed" id="tblDetails" width="100%"></table>
+
+
+</div>
+
+<script type="text/javascript">
+
+
+
+</script>
+
+<style>
+    .gridster ul li {
+        width: 100% !important;
+    }
+
+    #tblDetails_wrapper .row {
+        width: 820px;
+    }
+
+    .rowSelected {
+        background-color: yellow !important;
+    }
+
+    #tblDetails_paginate {
+        margin-top: -21px !important;
+    }
+</style>
